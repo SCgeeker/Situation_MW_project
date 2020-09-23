@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="sticky-footer-html">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Ubuntu+Mono|Roboto+Slab' rel='stylesheet' type='text/css'>
+		<link rel="icon" href="/themes/bootstrap/img/forum.png" />
+		<title>Forum</title>
+  <link rel="stylesheet" href="/themes/bootstrap/design/style.css?v=2.0.1" media="all" />
+  <link rel="stylesheet" href="https://forum.cogsci.nl/applications/dashboard/design/style-compat.css?v=3.2" media="all" />
+  <link rel="stylesheet" href="/plugins/GooglePrettify/design/prettify.css?v=1.2.3" media="all" />
+  <link rel="stylesheet" href="/plugins/Signatures/design/signature.css?v=1.6.1" media="all" />
+  <link rel="stylesheet" href="/applications/vanilla/design/tag.css?v=3.0" media="all" />
+  <link rel="stylesheet" href="/themes/bootstrap/design/custom.css?v=2.0.1" media="all" />
+  <link rel="stylesheet" href="/themes/bootstrap/design/custom_cogsci.css?v=2.0.1" media="all" />
+  <link rel="stylesheet" href="/resources/design/vanillicon.css?v=3.2" media="all" />
+  <link rel="stylesheet" href="/applications/vanilla/design/spoilers.css?v=3.0" media="all" />
+  <link rel="canonical" href="https://forum.cogsci.nl/home/file-not-found" />
+  <meta property="og:site_name" content="Forum" />
+  <meta property="og:url" content="https://forum.cogsci.nl/home/file-not-found" />
+  <script>gdn=window.gdn||{};gdn.meta={"currentThemePath":"\/themes\/bootstrap","Spoiler":"Spoiler","show":"show","hide":"hide","Roles":["Member"],"AnalyticsTask":"tick","RedirectTo":"","RedirectUrl":"","TransportError":"A fatal error occurred while processing the request.<br \/>The server returned the following response: %s","TransientKey":"PKuSQwYS4VknMonu","WebRoot":"https:\/\/forum.cogsci.nl\/","UrlFormat":"\/{Path}","Path":"dashboard\/home\/filenotfound","Args":"","ResolvedPath":"dashboard\/home\/filenotfound","ResolvedArgs":[],"SignedIn":1,"SetHourOffset":8,"SetTimeZone":"Asia\/Taipei","ConfirmHeading":"Confirm","ConfirmText":"Are you sure you want to do that?","Okay":"Okay","Cancel":"Cancel","Search":"Search","ui":{"siteName":"Forum","siteTitle":"Forum","locale":"en","inputFormat":"rich"},"context":{"host":"","basePath":"","assetPath":"","debug":false},"upload":{"maxSize":52428800,"allowedExtensions":["txt","jpg","gif","png","bmp","zip","gz","tar.gz","tgz","psd","ai","fla","swf","pdf","doc","xls","ppt","docx","xlsx","log","csv","jpeg","osexp","psyexp","txt","tsv","jasp","opensesame"]},"useNewFlyouts":false};
+gdn.permissions={"permissions":{"email.view":true,"signIn.allow":true,"activity.view":true,"profiles.view":true,"profiles.edit":true,"uploads.add":true,"tags.add":true,"conversations.add":true,"discussions.view":true,"discussions.add":true,"comments.add":true,"signatures.edit":true},"bans":[],"isAdmin":false};
+window.__ACTIONS__=[];
+</script>
+  <script src="/js/library/jquery.js?v=3.2"></script>
+  <script src="/js/library/jquery.form.js?v=3.2"></script>
+  <script src="/js/library/jquery.popup.js?v=3.2"></script>
+  <script src="/js/library/jquery.gardenhandleajaxform.js?v=3.2"></script>
+  <script src="/js/global.js?v=3.2"></script>
+  <script src="/js/flyouts.js?v=3.2"></script>
+  <script src="/applications/vanilla/js/spoilers.js?v=3.0"></script>
+  <script src="/applications/vanilla/js/tagging.js?v=3.0"></script>
+  <script src="/js/library/jquery.tokeninput.js?v=3.2"></script>
+  <script src="/themes/bootstrap/js/custom.js?v=2.0.1"></script>
+  <script>var supportsAllFeatures = window.Promise && window.fetch && window.Symbol&& window.CustomEvent && Element.prototype.remove && Element.prototype.closest&& window.NodeList && NodeList.prototype.forEach;if (!supportsAllFeatures) {var head = document.getElementsByTagName('head')[0];var script = document.createElement('script');script.src = 'https://forum.cogsci.nl/dist/polyfills.min.js?h=3.2';head.appendChild(script);} else {  }</script>
+  <script src="https://forum.cogsci.nl/api/v2/locales/en/translations.js?h=3.2" defer="defer"></script>
+  <script src="https://forum.cogsci.nl/dist/forum/runtime.min.js?h=3.2" defer="defer"></script>
+  <script src="https://forum.cogsci.nl/dist/forum/vendors.min.js?h=3.2" defer="defer"></script>
+  <script src="https://forum.cogsci.nl/dist/forum/shared.min.js?h=3.2" defer="defer"></script>
+  <script src="https://forum.cogsci.nl/dist/forum/addons/rich-editor.min.js?h=3.2" defer="defer"></script>
+  <script src="https://forum.cogsci.nl/dist/forum/addons/dashboard.min.js?h=3.2" defer="defer"></script>
+  <script src="https://forum.cogsci.nl/dist/forum/bootstrap.min.js?h=3.2" defer="defer"></script>
+<!-- Preload links, scripts, and stylesheets -->
+
+
+		
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-26205412-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+		<script>
+			function highlightnoreplies() {
+				var x = document.getElementsByClassName("CommentCount");
+				for (var i = 0; i < x.length; i++) {
+					if (x[i].innerText == "0 comments") {
+						x[i].classList.add("NoReplies");
+						x[i].innerText = "Be the first to reply!"
+					}
+				}
+			}
+		</script>
+		<script>
+			function highlightnoreplies() {
+				var x = document.getElementsByClassName("CommentCount");
+				for (var i = 0; i < x.length; i++) {
+					if (x[i].innerText == "0 comments") {
+						x[i].classList.add("NoReplies");
+						x[i].innerText = "Be the first to reply!"
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body id="dashboard_home_filenotfound" class="Dashboard Home isDesktop filenotfound SplashMessage NoPanel Section-Error sticky-footer-body" onload="highlightnoreplies()">
+		<div class="container forum-container">
+			<!-- Top banner -->
+			<div class="row visible-lg visible-md visible-sm">
+				<div id="cogsci-forum-header" class="col-md-12">
+					<img src="/themes/bootstrap/img/forum-header-1.png">
+				</div>
+			</div>
+			<!-- Top menu -->
+			<div class="row">
+				<nav class="navbar navbar-default cogsci-navbar" role="navigation">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="/">
+								<img src="/themes/bootstrap/img/forum.png" />
+							</a>
+						</div>
+
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav hidden-xs">
+								<li>
+									<a href="/index.php?p=/discussions">Discussions</a>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										Documentation
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="https://osdoc.cogsci.nl/">OpenSesame</a></li>
+										<li><a href="https://jasp-stats.org/">JASP</a></li>
+										<li><a href="https://www.pygaze.org/docs/">PyGaze</a></li>
+										<li><a href="https://docs.expyriment.org/index.html">Expyriment</a></li>
+										<li><a href="https://pascalkieslich.github.io/mousetrap/">Mousetrap</a></li>
+										<li><a href="https://datamatrix.cogsci.nl/">DataMatrix</a></li>
+										<li><a href="http://www.jatos.org/">JATOS</a></li>
+										<li><a href="https://www.psychopy.org/documentation.html">PsychoPy</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="https://python.cogsci.nl/">Learn Python</a>
+								</li>
+								<li>
+									<a href="https://www.cogsci.nl/">Blog</a>
+								</li>
+							</ul>
+
+														<ul class="nav navbar-nav navbar-right hidden-xs">
+								<div class="MeBox"><a title="CSC" href="/profile/CSC" class="PhotoWrap"><img src="//wa.vanillicon.com/v2/a29987208108ce65bebe6791f40d3192.svg" alt="CSC" class="ProfilePhoto ProfilePhotoMedium" /></a><div class="WhoIs"><a href="/profile/CSC" class="Username">CSC</a><div class="MeMenu"><span class="ToggleFlyout" rel="/profile/notificationspopin?TransientKey=PKuSQwYS4VknMonu"><a href="/profile/CSC" class="MeButton FlyoutButton js-clear-notifications" title="Notifications" tabindex="0" role="button" aria-haspopup="true"><span aria-hidden="true" class="Sprite Sprite16 SpNotifications"></span><span class="sr-only">Notifications</span><span class="Alert NotificationsAlert">2</span></a><span aria-hidden="true" class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu Flyout-withFrame"></div></span><span class="ToggleFlyout" rel="/messages/popin"><a href="/messages/all" class="MeButton FlyoutButton" title="Inbox" tabindex="0" role="button" aria-haspopup="true"><span aria-hidden="true" class="Sprite Sprite16 SpInbox"></span><span class="sr-only">Inbox</span></a><span aria-hidden="true" class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu Flyout-withFrame"></div></span><span class="ToggleFlyout" rel="/discussions/bookmarkedpopin"><a href="/discussions/bookmarked" class="MeButton FlyoutButton" title="Bookmarks" tabindex="0" role="button" aria-haspopup="true"><span aria-hidden="true" class="Sprite Sprite16 SpBookmarks"></span><span class="sr-only">Bookmarks</span></a><span aria-hidden="true" class="Arrow SpFlyoutHandle"></span><div class="Flyout FlyoutMenu Flyout-withFrame"></div></span><span class="ToggleFlyout "><a href="/profile/edit" class="MeButton FlyoutButton MeButton-user" title="Account Options" tabindex="0" role="button" aria-haspopup="true"><span aria-hidden="true" class="Sprite Sprite16 SpOptions"></span><span class="sr-only">Account Options</span></a>    <ul class="Flyout MenuItems list-reset " role="menu" aria-labelledby="dropdown">
+                                    <li role="presentation" class="1 no-icon">
+                    <a role="menuitem" class="dropdown-menu-link  dropdown-menu-link-profile-view" tabindex="-1" href="/profile" >View Profile</a>
+                </li>
+                                        <li role="presentation" class="1 no-icon">
+                    <a role="menuitem" class="dropdown-menu-link  dropdown-menu-link-profile-edit" tabindex="-1" href="/profile/edit" >Edit Profile</a>
+                </li>
+                                        <li role="presentation" >
+                    <hr />
+                </li>
+                                        <li role="presentation" class="1 no-icon">
+                    <a role="menuitem" class="dropdown-menu-link  dropdown-menu-link-entry-signout" tabindex="-1" href="/entry/signout?TransientKey=PKuSQwYS4VknMonu" >Sign Out</a>
+                </li>
+                </ul>
+</span>
+</div></div></div>
+							</ul>
+							<ul class="nav navbar-nav navbar-right visible-xs">
+								<li><a href="/profile" class="HasCount">CSC <span class="Alert">2</span></a></li>
+								<li><a href="/messages/inbox" class="">Inbox</a></li>
+								<li><a href="/discussions/bookmarked" class="HasCount">My Bookmarks <span class="Count">1</span></a></li>
+								
+								<li><a href="/entry/signout?TransientKey=PKuSQwYS4VknMonu" rel="nofollow" class="SignOut">Sign Out</a></li>
+							</ul>
+													</div>
+					</div>
+				</nav>
+			</div>
+			<!-- Main body with side panel and content -->
+			<div class="row">
+				<div class="col-md-4 col-xs-12 page-sidebar">
+					<div class='cogsci-social visible-lg'>
+						<a class='cogsci-blog' href="https://www.cogsci.nl/"><img src="/themes/bootstrap/img/cogsci.png" /></a>
+						<a class='cogsci-twitter' href="https://twitter.com/intent/follow?screen_name=cogscinl"><img src="https://osdoc.cogsci.nl/3.2/theme/img/twitter.png" /></a>
+						<a class='cogsci-facebook' href="https://www.facebook.com/cognitivescience/"><img src="https://osdoc.cogsci.nl/3.2/theme/img/facebook.png" /></a>
+						<a href="https://www.youtube.com/sebastiaanmathot"><img src="https://osdoc.cogsci.nl/3.2/theme/img/youtube.png" /></a>
+					</div>
+
+					<!-- Custom search box -->
+					<form action="https://search.cogsci.nl" id="cse-search-box" target="_blank">
+						<div class="cogsci-search input-group">
+							<input type="text" name="q" class="form-control" placeholder="Search for &#8230;">
+							<input type="hidden" name="cx" value="partner-pub-9276598827173431:7001979481" />
+							<input type="hidden" name="cof" value="FORID:10" />
+							<input type="hidden" name="ie" value="UTF-8" />
+							<span class="input-group-btn">
+								<button class="btn btn-default" name="sa" type="submit">Go!</button>
+							</span>
+						</div>
+					</form>
+
+					
+					<!-- A hack to hide the New Discussion button if the user is not logged in, which doesn't always happen for some reason. -->
+										<div class="row panel sponsors panel-default visible-lg">
+						<div class="panel-heading">Supported by</div>
+						<div class="panel-body">
+							<a href="http://www.sr-research.com/">
+								<img src="/themes/bootstrap/img/sr-research.png" />
+							</a>
+							<a href="http://www.escop.eu/">
+								<img src="/themes/bootstrap/img/escop.png" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 col-xs-12 page-content">
+					
+<div class="Center SplashInfo">
+    <h1>Page Not Found</h1>
+
+    <div id="Message">The page you were looking for could not be found.</div>
+</div>
+
+
+				</div>
+			</div>
+			<!-- Footer -->
+			<div class="row">
+				<div class="col-md-12 cogsci-footer">
+					<a href='https://www.cogsci.nl/smathot'>Sebastiaan Mathôt</a>
+					<span class='cogsci-arrow-right'>&raquo;</span>
+					v2.0.18
+					<span class='cogsci-arrow-right'>&raquo;</span>
+					Copyright 2011 — 2019
+					<span class='cogsci-arrow-right'>&raquo;</span>
+					<a href="http://www.vanillaforums.org/">Vanilla flavored</a>
+					<span class='cogsci-arrow-right'>&raquo;</span>
+					<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">License</a>
+				</div>
+			</div>
+			
+		</div>
+<div id="meta-contact"><p><div style="display:none;">agen judi bola , sportbook, casino, togel, number game, singapore, tangkas, basket, slot, poker, dominoqq, <a href="http://139.180.143.57">agen bola</a>. Semua permainan bisa dimainkan hanya dengan 1 ID. minimal deposit 50.000 ,- bonus cashback hingga 10% , diskon togel hingga 66% bisa bermain di android dan IOS kapanpun dan dimana pun. poker , bandarq , aduq, domino qq , <a href="http://45.76.158.27">dominobet</a>. Semua permainan bisa dimainkan hanya dengan 1 ID. minimal deposit 10.000 ,- bonus turnover 0.5% dan bonus referral 20%. Bonus - bonus yang dihadirkan bisa terbilang cukup tinggi dan memuaskan, anda hanya perlu memasang pada situs yang memberikan bursa pasaran terbaik yaitu <a href="http://45.77.173.118/">http://45.77.173.118/</a> Bola168. Situs penyedia segala jenis permainan poker online kini semakin banyak ditemukan di Internet, salah satunya TahunQQ merupakan situs Agen Judi Domino66 Dan <a href="http://207.148.75.254/"> BandarQ Terpercaya </a> yang mampu memberikan banyak provit bagi bettornya. Permainan Yang Di Sediakan Dewi365 Juga sangat banyak Dan menarik dan Peluang untuk memenangkan Taruhan Judi online ini juga sangat mudah . Mainkan Segera Taruhan Sportbook anda bersama <a href="http://45.32.117.201/">Agen Judi Bola</a> Bersama Dewi365 Kemenangan Anda Berapa pun akan Terbayarkan. Tersedia 9 macam permainan seru yang bisa kamu mainkan hanya di dalam 1 ID saja. Permainan seru yang tersedia seperti Poker, Domino QQ Dan juga <a href="http://207.148.120.65/">BandarQ Online</a>. Semuanya tersedia lengkap hanya di ABGQQ. Situs ABGQQ sangat mudah dimenangkan, kamu juga akan mendapatkan mega bonus dan setiap pemain berhak mendapatkan cashback mingguan. ABGQQ juga telah diakui sebagai <a href="https://abgqq89.com/">Bandar Domino Online</a> yang menjamin sistem FAIR PLAY disetiap permainan yang bisa dimainkan dengan deposit minimal hanya Rp.25.000. DEWI365 adalah <a href="http://216.83.47.35/">Bandar Judi Bola Terpercaya</a> & resmi dan terpercaya di indonesia. Situs judi bola ini menyediakan fasilitas bagi anda untuk dapat bermain memainkan permainan judi bola. Didalam situs ini memiliki berbagai permainan taruhan bola terlengkap seperti Sbobet, yang membuat DEWI365 menjadi situs judi bola terbaik dan terpercaya di Indonesia. Tentunya sebagai situs yang bertugas sebagai <a href="http://www.pkvpoker13.com/">Bandar Poker Online</a> pastinya akan berusaha untuk menjaga semua informasi dan keamanan yang terdapat di POKERQQ13. Kotakqq adalah situs <a href="http://www.kotakqq.net/">Judi Poker Online Terpercaya</a>yang menyediakan 9 jenis permainan sakong online, dominoqq, domino99, bandarq, bandar ceme, aduq, poker online, bandar poker, balak66, perang baccarat, dan capsa susun. Dengan minimal deposit withdraw 15.000 Anda sudah bisa memainkan semua permaina pkv games di situs kami. Jackpot besar,Win rate tinggi, Fair play, PKV Games</div>
+	</body>
+</html>
