@@ -171,7 +171,7 @@ define sequence experiment
 define sketchpad instruction_text
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="In this experiment, you will read a series of simple stories <br/>one sentence at a time. <br/><br/>Press the space bar to advance to the next sentence of the story. <br/>After some point in each story, a single word will appear in all  <br/>capital letters.  <br/><br/>If this word was previously mentioned, press `g` with your left  <br/>index finger to select `Old Word`;  <br/>If it was not mentioned in the story, press 'h' with your right  <br/>index finger to select `New Word`.  <br/>Respond to the probes as quickly and accurately as you can.  <br/><br/>After each story, a statement will appear with the word Question  <br/>before it. Choose whether the statement is true by pressing 'g'  <br/>with your left index finger or false by pressing 'h' with your  <br/>right index finger.  <br/>The start of a new story will be signaled by the story number  <br/>in the top of the screen." x=-450 y=-250 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="In this experiment, you will read a series of simple stories <br/>one sentence at a time. <br/><br/>Press the space bar to advance to the next sentence of the story. <br/>After some point in each story, a single word will appear in all  <br/>capital letters.  <br/><br/>If this word was previously mentioned, press `f` with your left  <br/>index finger to select `Old Word`;  <br/>If it was not mentioned in the story, press 'j' with your right  <br/>index finger to select `New Word`.  <br/>Respond to the probes as quickly and accurately as you can.  <br/><br/>After each story, a statement will appear with the word Question  <br/>before it. Choose whether the statement is true by pressing 'f'  <br/>with your left index finger or false by pressing 'j' with your  <br/>right index finger.  <br/>The start of a new story will be signaled by the story number  <br/>in the top of the screen." x=-450 y=-250 z_index=0
 	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="Please press SPACE BAR to continue." x=-224 y=288 z_index=0
 
 define logger logger
@@ -13033,7 +13033,7 @@ define loop passage_prac01
 	setcycle 5 line_text TYPING
 	setcycle 5 probe y
 	setcycle 5 probe_type f
-	setcycle 5 correct_response g
+	setcycle 5 correct_response f
 	setcycle 6 passage 1
 	setcycle 6 line 6
 	setcycle 6 line_text "She was going to have to cut material to be under <br/>the limit  for the paper."
@@ -13045,13 +13045,13 @@ define loop passage_prac01
 	setcycle 7 line_text KICKING
 	setcycle 7 probe y
 	setcycle 7 probe_type f
-	setcycle 7 correct_response h
+	setcycle 7 correct_response j
 	setcycle 8 passage 1
 	setcycle 8 line 0
 	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The deadline was four hours away."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
-	setcycle 8 correct_response h
+	setcycle 8 correct_response j
 	run task_trial
 
 define loop passage_prac02
@@ -13099,7 +13099,7 @@ define loop passage_prac02
 	setcycle 5 line_text STEPPING
 	setcycle 5 probe y
 	setcycle 5 probe_type f
-	setcycle 5 correct_response g
+	setcycle 5 correct_response f
 	setcycle 6 passage 2
 	setcycle 6 line 6
 	setcycle 6 line_text " He thought about training for an upcoming 5K."
@@ -13111,13 +13111,13 @@ define loop passage_prac02
 	setcycle 7 line_text EATING
 	setcycle 7 probe y
 	setcycle 7 probe_type f
-	setcycle 7 correct_response h
+	setcycle 7 correct_response j
 	setcycle 8 passage 2
 	setcycle 8 line 0
 	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Wes was jogging along the waterfront."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
-	setcycle 8 correct_response g
+	setcycle 8 correct_response f
 	run task_trial
 
 define loop passage_prac03
@@ -13165,7 +13165,7 @@ define loop passage_prac03
 	setcycle 5 line_text GRABING
 	setcycle 5 probe y
 	setcycle 5 probe_type f
-	setcycle 5 correct_response h
+	setcycle 5 correct_response j
 	setcycle 6 passage 3
 	setcycle 6 line 6
 	setcycle 6 line_text "Allan realized the night might not be so great after all."
@@ -13177,13 +13177,13 @@ define loop passage_prac03
 	setcycle 7 line_text DRINKING
 	setcycle 7 probe y
 	setcycle 7 probe_type f
-	setcycle 7 correct_response h
+	setcycle 7 correct_response j
 	setcycle 8 passage 3
 	setcycle 8 line 0
 	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Allan had two strikes and two spares."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
-	setcycle 8 correct_response h
+	setcycle 8 correct_response j
 	run task_trial
 
 define sequence post_study
