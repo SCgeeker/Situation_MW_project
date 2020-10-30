@@ -1,11 +1,11 @@
 ---
 API: 2.1
-OpenSesame: 3.3.3
+OpenSesame: 3.3.4
 Platform: nt
 ---
 set width 1024
 set uniform_coordinates yes
-set title "Comprehension and word detection"
+set title "Comprehension and word detection 20201030rev"
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -75,6 +75,9 @@ define sketchpad Passage_board
 	set duration 0
 	set description "Displays stimuli"
 	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="[line_text]" x=-450 y=-200 z_index=0
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[probe_type] = f" text="(f:Old word; j:New word)" x=-360 y=-96 z_index=0
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[probe_type] = v" text="(f:Old word; j:New word)" x=-360 y=-96 z_index=0
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[probe_type] = q" text="(f:Yes; j:No)" x=-384 y=-96 z_index=0
 
 define keyboard_response Passage_response
 	set timeout infinite
@@ -85,7 +88,7 @@ define keyboard_response Passage_response
 	set allowed_responses SPACE
 
 define keyboard_response Probe_response
-	set timeout 5000
+	set timeout infinite
 	set flush yes
 	set event_type keypress
 	set duration keypress
@@ -262,7 +265,7 @@ define loop passage_E01_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The gang last played cards about four months ago."
+	setcycle 8 line_text "Is this true?<br/>The gang last played cards about four months ago."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -355,7 +358,7 @@ define loop passage_E01_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The gang last played cards about four months ago."
+	setcycle 8 line_text "Is this true?<br/>The gang last played cards about four months ago."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -448,7 +451,7 @@ define loop passage_E01_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The gang last played cards about four months ago."
+	setcycle 8 line_text "Is this true?<br/>The gang last played cards about four months ago."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -541,7 +544,7 @@ define loop passage_E01_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The gang last played cards about four months ago."
+	setcycle 8 line_text "Is this true?<br/>The gang last played cards about four months ago."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -634,7 +637,7 @@ define loop passage_E02_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Maggie and Michael were about to play a game."
+	setcycle 8 line_text "Is this true?<br/>Maggie and Michael were about to play a game."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -727,7 +730,7 @@ define loop passage_E02_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Maggie and Michael were about to play a game."
+	setcycle 8 line_text "Is this true?<br/>Maggie and Michael were about to play a game."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -820,7 +823,7 @@ define loop passage_E02_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Maggie and Michael were about to play a game."
+	setcycle 8 line_text "Is this true?<br/>Maggie and Michael were about to play a game."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -913,7 +916,7 @@ define loop passage_E02_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Maggie and Michael were about to play a game."
+	setcycle 8 line_text "Is this true?<br/>Maggie and Michael were about to play a game."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -997,7 +1000,7 @@ define loop passage_E03_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 3
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Philip had gone to school in the U.S."
+	setcycle 7 line_text "Is this true?<br/>Philip had gone to school in the U.S."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -1081,7 +1084,7 @@ define loop passage_E03_FS
 	setcycle 6 Shift y
 	setcycle 7 passage 3
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Philip had gone to school in the U.S."
+	setcycle 7 line_text "Is this true?<br/>Philip had gone to school in the U.S."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -1165,7 +1168,7 @@ define loop passage_E03_NN
 	setcycle 6 Shift n
 	setcycle 7 passage 3
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Philip had gone to school in the U.S."
+	setcycle 7 line_text "Is this true?<br/>Philip had gone to school in the U.S."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -1249,7 +1252,7 @@ define loop passage_E03_NS
 	setcycle 6 Shift y
 	setcycle 7 passage 3
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Philip had gone to school in the U.S."
+	setcycle 7 line_text "Is this true?<br/>Philip had gone to school in the U.S."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -1342,7 +1345,7 @@ define loop passage_E04_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Christina left school early."
+	setcycle 8 line_text "Is this true?<br/>Christina left school early."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -1435,7 +1438,7 @@ define loop passage_E04_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Christina left school early."
+	setcycle 8 line_text "Is this true?<br/>Christina left school early."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -1528,7 +1531,7 @@ define loop passage_E04_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Christina left school early."
+	setcycle 8 line_text "Is this true?<br/>Christina left school early."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -1621,7 +1624,7 @@ define loop passage_E04_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Christina left school early."
+	setcycle 8 line_text "Is this true?<br/>Christina left school early."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -1723,7 +1726,7 @@ define loop passage_E05_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Things had been tense between George and Lucille."
+	setcycle 9 line_text "Is this true?<br/>Things had been tense between George and Lucille."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -1825,7 +1828,7 @@ define loop passage_E05_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Things had been tense between George and Lucille."
+	setcycle 9 line_text "Is this true?<br/>Things had been tense between George and Lucille."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -1927,7 +1930,7 @@ define loop passage_E05_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Things had been tense between George and Lucille."
+	setcycle 9 line_text "Is this true?<br/>Things had been tense between George and Lucille."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -2029,7 +2032,7 @@ define loop passage_E05_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Things had been tense between George and Lucille."
+	setcycle 9 line_text "Is this true?<br/>Things had been tense between George and Lucille."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -2122,7 +2125,7 @@ define loop passage_E06_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rita was eating vanilla pudding."
+	setcycle 8 line_text "Is this true?<br/>Rita was eating vanilla pudding."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -2215,7 +2218,7 @@ define loop passage_E06_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rita was eating vanilla pudding."
+	setcycle 8 line_text "Is this true?<br/>Rita was eating vanilla pudding."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -2308,7 +2311,7 @@ define loop passage_E06_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rita was eating vanilla pudding."
+	setcycle 8 line_text "Is this true?<br/>Rita was eating vanilla pudding."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -2401,7 +2404,7 @@ define loop passage_E06_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rita was eating vanilla pudding."
+	setcycle 8 line_text "Is this true?<br/>Rita was eating vanilla pudding."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -2503,7 +2506,7 @@ define loop passage_E07_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>The case dealt with securities fraud."
+	setcycle 9 line_text "Is this true?<br/>The case dealt with securities fraud."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -2605,7 +2608,7 @@ define loop passage_E07_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>The case dealt with securities fraud."
+	setcycle 9 line_text "Is this true?<br/>The case dealt with securities fraud."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -2707,7 +2710,7 @@ define loop passage_E07_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>The case dealt with securities fraud."
+	setcycle 9 line_text "Is this true?<br/>The case dealt with securities fraud."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -2809,7 +2812,7 @@ define loop passage_E07_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>The case dealt with securities fraud."
+	setcycle 9 line_text "Is this true?<br/>The case dealt with securities fraud."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -2893,7 +2896,7 @@ define loop passage_E08_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 8
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Meghan was drinking tea."
+	setcycle 7 line_text "Is this true?<br/>Meghan was drinking tea."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -2977,7 +2980,7 @@ define loop passage_E08_FS
 	setcycle 6 Shift y
 	setcycle 7 passage 8
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Meghan was drinking tea."
+	setcycle 7 line_text "Is this true?<br/>Meghan was drinking tea."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -3061,7 +3064,7 @@ define loop passage_E08_NN
 	setcycle 6 Shift n
 	setcycle 7 passage 8
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Meghan was drinking tea."
+	setcycle 7 line_text "Is this true?<br/>Meghan was drinking tea."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -3145,7 +3148,7 @@ define loop passage_E08_NS
 	setcycle 6 Shift y
 	setcycle 7 passage 8
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Meghan was drinking tea."
+	setcycle 7 line_text "Is this true?<br/>Meghan was drinking tea."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -3175,7 +3178,7 @@ define loop passage_F01
 	setcycle 0 Shift f
 	setcycle 1 passage 1
 	setcycle 1 line 2
-	setcycle 1 line_text "She was working hard on her latest article, and her editor wanted to see a draft."
+	setcycle 1 line_text "She was working hard on her latest article, and her editor <br/>wanted to see a draft."
 	setcycle 1 probe n
 	setcycle 1 probe_type n
 	setcycle 1 correct_response space
@@ -3238,7 +3241,7 @@ define loop passage_F01
 	setcycle 7 Shift f
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Alexis was writing a book."
+	setcycle 8 line_text "Is this true?<br/>Alexis was writing a book."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -3331,7 +3334,7 @@ define loop passage_F02
 	setcycle 7 Shift f
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Jude lived in an apartment."
+	setcycle 8 line_text "Is this true?<br/>Jude lived in an apartment."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -3424,7 +3427,7 @@ define loop passage_F03
 	setcycle 7 Shift f
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Abigail’s diaper was dry."
+	setcycle 8 line_text "Is this true?<br/>Abigail’s diaper was dry."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -3517,7 +3520,7 @@ define loop passage_F04
 	setcycle 7 Shift f
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Windy was at an amusement park."
+	setcycle 8 line_text "Is this true?<br/>Windy was at an amusement park."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -3565,7 +3568,7 @@ define loop passage_F05
 	setcycle 2 Shift f
 	setcycle 3 passage 5
 	setcycle 3 line 4
-	setcycle 3 line_text "Soon the room was filled with the sounds of squeaking shoes and the buzzer."
+	setcycle 3 line_text "Soon the room was filled with the sounds of squeaking <br/>shoes and the buzzer."
 	setcycle 3 probe n
 	setcycle 3 probe_type n
 	setcycle 3 correct_response space
@@ -3619,7 +3622,7 @@ define loop passage_F05
 	setcycle 8 Shift f
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Roger snacked on pretzels."
+	setcycle 9 line_text "Is this true?<br/>Roger snacked on pretzels."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -3712,7 +3715,7 @@ define loop passage_F06
 	setcycle 7 Shift f
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Byron had not been on the yacht for two months."
+	setcycle 8 line_text "Is this true?<br/>Byron had not been on the yacht for two months."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -3814,7 +3817,7 @@ define loop passage_F07
 	setcycle 8 Shift f
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>They were on their fifth bottle of wine."
+	setcycle 9 line_text "Is this true?<br/>They were on their fifth bottle of wine."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -3907,7 +3910,7 @@ define loop passage_F08
 	setcycle 7 Shift f
 	setcycle 8 passage 8
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Hannah had only a couple more chapters to read."
+	setcycle 8 line_text "Is this true?<br/>Hannah had only a couple more chapters to read."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -4000,7 +4003,7 @@ define loop passage_G01_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Mike was going to see The Wallflowers."
+	setcycle 8 line_text "Is this true?<br/>Mike was going to see The Wallflowers."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -4093,7 +4096,7 @@ define loop passage_G01_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Mike was going to see The Wallflowers."
+	setcycle 8 line_text "Is this true?<br/>Mike was going to see The Wallflowers."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -4186,7 +4189,7 @@ define loop passage_G01_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Mike was going to see The Wallflowers."
+	setcycle 8 line_text "Is this true?<br/>Mike was going to see The Wallflowers."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -4279,7 +4282,7 @@ define loop passage_G01_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Mike was going to see The Wallflowers."
+	setcycle 8 line_text "Is this true?<br/>Mike was going to see The Wallflowers."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -4363,7 +4366,7 @@ define loop passage_G02_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Kathryn was in a coffee shop."
+	setcycle 7 line_text "Is this true?<br/>Kathryn was in a coffee shop."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -4447,7 +4450,7 @@ define loop passage_G02_FS
 	setcycle 6 Shift y
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Kathryn was in a coffee shop."
+	setcycle 7 line_text "Is this true?<br/>Kathryn was in a coffee shop."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -4531,7 +4534,7 @@ define loop passage_G02_NN
 	setcycle 6 Shift n
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Kathryn was in a coffee shop."
+	setcycle 7 line_text "Is this true?<br/>Kathryn was in a coffee shop."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -4615,7 +4618,7 @@ define loop passage_G02_NS
 	setcycle 6 Shift y
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Kathryn was in a coffee shop."
+	setcycle 7 line_text "Is this true?<br/>Kathryn was in a coffee shop."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -4708,7 +4711,7 @@ define loop passage_G03_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rachel was going to a funeral."
+	setcycle 8 line_text "Is this true?<br/>Rachel was going to a funeral."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -4801,7 +4804,7 @@ define loop passage_G03_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rachel was going to a funeral."
+	setcycle 8 line_text "Is this true?<br/>Rachel was going to a funeral."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -4894,7 +4897,7 @@ define loop passage_G03_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rachel was going to a funeral."
+	setcycle 8 line_text "Is this true?<br/>Rachel was going to a funeral."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -4987,7 +4990,7 @@ define loop passage_G03_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Rachel was going to a funeral."
+	setcycle 8 line_text "Is this true?<br/>Rachel was going to a funeral."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -5080,7 +5083,7 @@ define loop passage_G04_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Eric worked in a cubicle."
+	setcycle 8 line_text "Is this true?<br/>Eric worked in a cubicle."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -5173,7 +5176,7 @@ define loop passage_G04_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Eric worked in a cubicle."
+	setcycle 8 line_text "Is this true?<br/>Eric worked in a cubicle."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -5266,7 +5269,7 @@ define loop passage_G04_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Eric worked in a cubicle."
+	setcycle 8 line_text "Is this true?<br/>Eric worked in a cubicle."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -5359,7 +5362,7 @@ define loop passage_G04_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Eric worked in a cubicle."
+	setcycle 8 line_text "Is this true?<br/>Eric worked in a cubicle."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -5461,7 +5464,7 @@ define loop passage_G05_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Linda was trying to choose a font."
+	setcycle 9 line_text "Is this true?<br/>Linda was trying to choose a font."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -5563,7 +5566,7 @@ define loop passage_G05_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Linda was trying to choose a font."
+	setcycle 9 line_text "Is this true?<br/>Linda was trying to choose a font."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -5665,7 +5668,7 @@ define loop passage_G05_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Linda was trying to choose a font."
+	setcycle 9 line_text "Is this true?<br/>Linda was trying to choose a font."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -5767,7 +5770,7 @@ define loop passage_G05_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Linda was trying to choose a font."
+	setcycle 9 line_text "Is this true?<br/>Linda was trying to choose a font."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -5860,7 +5863,7 @@ define loop passage_G06_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Nicole arrived at eight that morning."
+	setcycle 8 line_text "Is this true?<br/>Nicole arrived at eight that morning."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -5953,7 +5956,7 @@ define loop passage_G06_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Nicole arrived at eight that morning."
+	setcycle 8 line_text "Is this true?<br/>Nicole arrived at eight that morning."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -6046,7 +6049,7 @@ define loop passage_G06_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Nicole arrived at eight that morning."
+	setcycle 8 line_text "Is this true?<br/>Nicole arrived at eight that morning."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -6139,7 +6142,7 @@ define loop passage_G06_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 6
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Nicole arrived at eight that morning."
+	setcycle 8 line_text "Is this true?<br/>Nicole arrived at eight that morning."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -6244,7 +6247,7 @@ define loop passage_G07_FN
 	setcycle 9 Shift n
 	setcycle 9 correct_response j
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Cameron was sanding the top of the table."
+	setcycle 9 line_text "Is this true?<br/>Cameron was sanding the top of the table."
 	setcycle 9 passage 7
 	setcycle 9 probe y
 	setcycle 9 probe_type q
@@ -6343,7 +6346,7 @@ define loop passage_G07_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Cameron was sanding the top of the table."
+	setcycle 9 line_text "Is this true?<br/>Cameron was sanding the top of the table."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -6445,7 +6448,7 @@ define loop passage_G07_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Cameron was sanding the top of the table."
+	setcycle 9 line_text "Is this true?<br/>Cameron was sanding the top of the table."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -6547,7 +6550,7 @@ define loop passage_G07_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Cameron was sanding the top of the table."
+	setcycle 9 line_text "Is this true?<br/>Cameron was sanding the top of the table."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -6640,7 +6643,7 @@ define loop passage_G08_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 8
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Julie was trying to avoid opening a double-word square."
+	setcycle 8 line_text "Is this true?<br/>Julie was trying to avoid opening a double-word square."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -6733,7 +6736,7 @@ define loop passage_G08_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 8
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Julie was trying to avoid opening a double-word square."
+	setcycle 8 line_text "Is this true?<br/>Julie was trying to avoid opening a double-word square."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -6826,7 +6829,7 @@ define loop passage_G08_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 8
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Julie was trying to avoid opening a double-word square."
+	setcycle 8 line_text "Is this true?<br/>Julie was trying to avoid opening a double-word square."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -6919,7 +6922,7 @@ define loop passage_G08_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 8
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Julie was trying to avoid opening a double-word square."
+	setcycle 8 line_text "Is this true?<br/>Julie was trying to avoid opening a double-word square."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -7012,7 +7015,7 @@ define loop passage_S01_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Oliver was busy with laundry."
+	setcycle 8 line_text "Is this true?<br/>Oliver was busy with laundry."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7105,7 +7108,7 @@ define loop passage_S01_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Oliver was busy with laundry."
+	setcycle 8 line_text "Is this true?<br/>Oliver was busy with laundry."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7198,7 +7201,7 @@ define loop passage_S01_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Oliver was busy with laundry."
+	setcycle 8 line_text "Is this true?<br/>Oliver was busy with laundry."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7291,7 +7294,7 @@ define loop passage_S01_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Oliver was busy with laundry."
+	setcycle 8 line_text "Is this true?<br/>Oliver was busy with laundry."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7384,7 +7387,7 @@ define loop passage_S02_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Alice had been locked out of her house three times over the past month."
+	setcycle 8 line_text "Is this true?<br/>Alice had been locked out of her house three times over the past month."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7477,7 +7480,7 @@ define loop passage_S02_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Alice had been locked out of her house three times over the past month."
+	setcycle 8 line_text "Is this true?<br/>Alice had been locked out of her house three times over the past month."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7570,7 +7573,7 @@ define loop passage_S02_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Alice had been locked out of her house three times over the past month."
+	setcycle 8 line_text "Is this true?<br/>Alice had been locked out of her house three times over the past month."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7663,7 +7666,7 @@ define loop passage_S02_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Alice had been locked out of her house three times over the past month."
+	setcycle 8 line_text "Is this true?<br/>Alice had been locked out of her house three times over the past month."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -7765,7 +7768,7 @@ define loop passage_S03_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 3
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Spencer’s package would arrive by Tuesday."
+	setcycle 9 line_text "Is this true?<br/>Spencer’s package would arrive by Tuesday."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -7867,7 +7870,7 @@ define loop passage_S03_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 3
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Spencer’s package would arrive by Tuesday."
+	setcycle 9 line_text "Is this true?<br/>Spencer’s package would arrive by Tuesday."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -7969,7 +7972,7 @@ define loop passage_S03_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 3
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Spencer’s package would arrive by Tuesday."
+	setcycle 9 line_text "Is this true?<br/>Spencer’s package would arrive by Tuesday."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -8071,7 +8074,7 @@ define loop passage_S03_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 3
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Spencer’s package would arrive by Tuesday."
+	setcycle 9 line_text "Is this true?<br/>Spencer’s package would arrive by Tuesday."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -8164,7 +8167,7 @@ define loop passage_S04_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Blaire had an easy day."
+	setcycle 8 line_text "Is this true?<br/>Blaire had an easy day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8257,7 +8260,7 @@ define loop passage_S04_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Blaire had an easy day."
+	setcycle 8 line_text "Is this true?<br/>Blaire had an easy day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8350,7 +8353,7 @@ define loop passage_S04_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Blaire had an easy day."
+	setcycle 8 line_text "Is this true?<br/>Blaire had an easy day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8443,7 +8446,7 @@ define loop passage_S04_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 4
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Blaire had an easy day."
+	setcycle 8 line_text "Is this true?<br/>Blaire had an easy day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8527,7 +8530,7 @@ define loop passage_S05_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 5
 	setcycle 7 line 7
-	setcycle 7 line_text "Jose didn’t really care for them, so he headed toward the checkout."
+	setcycle 7 line_text "Jose didn’t really care for them, so he headed toward <br/>the checkout."
 	setcycle 7 probe n
 	setcycle 7 probe_type s
 	setcycle 7 correct_response space
@@ -8536,7 +8539,7 @@ define loop passage_S05_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 5
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Jose picked up raspberries for dessert."
+	setcycle 8 line_text "Is this true?<br/>Jose picked up raspberries for dessert."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8557,7 +8560,7 @@ define loop passage_S05_FS
 	set break_if never
 	setcycle 0 passage 5
 	setcycle 0 line 1
-	setcycle 0 line_text "Jose strolled through the market putting various items in his basket."
+	setcycle 0 line_text "Jose strolled through the market putting various items <br/> in his basket."
 	setcycle 0 probe n
 	setcycle 0 probe_type n
 	setcycle 0 correct_response space
@@ -8575,7 +8578,7 @@ define loop passage_S05_FS
 	setcycle 1 Shift y
 	setcycle 2 passage 5
 	setcycle 2 line 3
-	setcycle 2 line_text "He smiled as he picked up some particularly good looking strawberries."
+	setcycle 2 line_text "He smiled as he picked up some particularly <br/> good looking strawberries."
 	setcycle 2 probe n
 	setcycle 2 probe_type n
 	setcycle 2 correct_response space
@@ -8629,7 +8632,7 @@ define loop passage_S05_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 5
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Jose picked up raspberries for dessert."
+	setcycle 8 line_text "Is this true?<br/>Jose picked up raspberries for dessert."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8695,7 +8698,7 @@ define loop passage_S05_NN
 	setcycle 4 Shift n
 	setcycle 5 passage 5
 	setcycle 5 line 6
-	setcycle 5 line_text "He quickly browsed through the market’s small selection of white wines."
+	setcycle 5 line_text "He quickly browsed through the market’s small selection of <br/> white wines."
 	setcycle 5 probe n
 	setcycle 5 probe_type s
 	setcycle 5 correct_response space
@@ -8722,7 +8725,7 @@ define loop passage_S05_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 5
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Jose picked up raspberries for dessert."
+	setcycle 8 line_text "Is this true?<br/>Jose picked up raspberries for dessert."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8815,7 +8818,7 @@ define loop passage_S05_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 5
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Jose picked up raspberries for dessert."
+	setcycle 8 line_text "Is this true?<br/>Jose picked up raspberries for dessert."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -8899,7 +8902,7 @@ define loop passage_S06_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 6
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Carl was in a van."
+	setcycle 7 line_text "Is this true?<br/>Carl was in a van."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -8986,7 +8989,7 @@ define loop passage_S06_FS
 	setcycle 7 Shift y
 	setcycle 7 correct_response f
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Carl was in a van."
+	setcycle 7 line_text "Is this true?<br/>Carl was in a van."
 	setcycle 7 passage 6
 	setcycle 7 probe y
 	setcycle 7 probe_type q
@@ -9067,7 +9070,7 @@ define loop passage_S06_NN
 	setcycle 6 Shift n
 	setcycle 7 passage 6
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Carl was in a van."
+	setcycle 7 line_text "Is this true?<br/>Carl was in a van."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -9151,7 +9154,7 @@ define loop passage_S06_NS
 	setcycle 6 Shift y
 	setcycle 7 passage 6
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Carl was in a van."
+	setcycle 7 line_text "Is this true?<br/>Carl was in a van."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -9253,7 +9256,7 @@ define loop passage_S07_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Toby was working on a marble rye."
+	setcycle 9 line_text "Is this true?<br/>Toby was working on a marble rye."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -9355,7 +9358,7 @@ define loop passage_S07_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Toby was working on a marble rye."
+	setcycle 9 line_text "Is this true?<br/>Toby was working on a marble rye."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -9457,7 +9460,7 @@ define loop passage_S07_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Toby was working on a marble rye."
+	setcycle 9 line_text "Is this true?<br/>Toby was working on a marble rye."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -9559,7 +9562,7 @@ define loop passage_S07_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 7
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Toby was working on a marble rye."
+	setcycle 9 line_text "Is this true?<br/>Toby was working on a marble rye."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -9661,7 +9664,7 @@ define loop passage_S08_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Stan had been waiting for weeks to see his team win."
+	setcycle 9 line_text "Is this true?<br/>Stan had been waiting for weeks to see his team win."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -9763,7 +9766,7 @@ define loop passage_S08_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Stan had been waiting for weeks to see his team win."
+	setcycle 9 line_text "Is this true?<br/>Stan had been waiting for weeks to see his team win."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -9865,7 +9868,7 @@ define loop passage_S08_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Stan had been waiting for weeks to see his team win."
+	setcycle 9 line_text "Is this true?<br/>Stan had been waiting for weeks to see his team win."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -9967,7 +9970,7 @@ define loop passage_S08_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Stan had been waiting for weeks to see his team win."
+	setcycle 9 line_text "Is this true?<br/>Stan had been waiting for weeks to see his team win."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -10060,7 +10063,7 @@ define loop passage_T01_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Janie had had a very relaxing day."
+	setcycle 8 line_text "Is this true?<br/>Janie had had a very relaxing day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -10153,7 +10156,7 @@ define loop passage_T01_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Janie had had a very relaxing day."
+	setcycle 8 line_text "Is this true?<br/>Janie had had a very relaxing day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -10246,7 +10249,7 @@ define loop passage_T01_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Janie had had a very relaxing day."
+	setcycle 8 line_text "Is this true?<br/>Janie had had a very relaxing day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -10339,7 +10342,7 @@ define loop passage_T01_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Janie had had a very relaxing day."
+	setcycle 8 line_text "Is this true?<br/>Janie had had a very relaxing day."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -10423,7 +10426,7 @@ define loop passage_T02_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Katie was applying to medical school."
+	setcycle 7 line_text "Is this true?<br/>Katie was applying to medical school."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -10507,7 +10510,7 @@ define loop passage_T02_FS
 	setcycle 6 Shift y
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Katie was applying to medical school."
+	setcycle 7 line_text "Is this true?<br/>Katie was applying to medical school."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -10591,7 +10594,7 @@ define loop passage_T02_NN
 	setcycle 6 Shift n
 	setcycle 7 passage 2
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Katie was applying to medical school."
+	setcycle 7 line_text "Is this true?<br/>Katie was applying to medical school."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response f
@@ -10678,7 +10681,7 @@ define loop passage_T02_NS
 	setcycle 7 Shift y
 	setcycle 7 correct_response f
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Katie was applying to medical school."
+	setcycle 7 line_text "Is this true?<br/>Katie was applying to medical school."
 	setcycle 7 passage 2
 	setcycle 7 probe y
 	setcycle 7 probe_type q
@@ -10768,7 +10771,7 @@ define loop passage_T03_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Steve sat near the end of the bar."
+	setcycle 8 line_text "Is this true?<br/>Steve sat near the end of the bar."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -10861,7 +10864,7 @@ define loop passage_T03_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Steve sat near the end of the bar."
+	setcycle 8 line_text "Is this true?<br/>Steve sat near the end of the bar."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -10954,7 +10957,7 @@ define loop passage_T03_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Steve sat near the end of the bar."
+	setcycle 8 line_text "Is this true?<br/>Steve sat near the end of the bar."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -11047,7 +11050,7 @@ define loop passage_T03_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Steve sat near the end of the bar."
+	setcycle 8 line_text "Is this true?<br/>Steve sat near the end of the bar."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -11131,7 +11134,7 @@ define loop passage_T04_FN
 	setcycle 6 Shift n
 	setcycle 7 passage 4
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Jordan was feeding seeds to the birds."
+	setcycle 7 line_text "Is this true?<br/>Jordan was feeding seeds to the birds."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -11215,7 +11218,7 @@ define loop passage_T04_FS
 	setcycle 6 Shift y
 	setcycle 7 passage 4
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Jordan was feeding seeds to the birds."
+	setcycle 7 line_text "Is this true?<br/>Jordan was feeding seeds to the birds."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -11299,7 +11302,7 @@ define loop passage_T04_NN
 	setcycle 6 Shift n
 	setcycle 7 passage 4
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Jordan was feeding seeds to the birds."
+	setcycle 7 line_text "Is this true?<br/>Jordan was feeding seeds to the birds."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -11383,7 +11386,7 @@ define loop passage_T04_NS
 	setcycle 6 Shift y
 	setcycle 7 passage 4
 	setcycle 7 line 0
-	setcycle 7 line_text "Is this true? (f:yes; j:no) <br/>Jordan was feeding seeds to the birds."
+	setcycle 7 line_text "Is this true?<br/>Jordan was feeding seeds to the birds."
 	setcycle 7 probe y
 	setcycle 7 probe_type q
 	setcycle 7 correct_response j
@@ -11485,7 +11488,7 @@ define loop passage_T05_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Mitch won the sessions with the trainer in a raffle."
+	setcycle 9 line_text "Is this true?<br/>Mitch won the sessions with the trainer in a raffle."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -11587,7 +11590,7 @@ define loop passage_T05_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Mitch won the sessions with the trainer in a raffle."
+	setcycle 9 line_text "Is this true?<br/>Mitch won the sessions with the trainer in a raffle."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -11689,7 +11692,7 @@ define loop passage_T05_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Mitch won the sessions with the trainer in a raffle."
+	setcycle 9 line_text "Is this true?<br/>Mitch won the sessions with the trainer in a raffle."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -11791,7 +11794,7 @@ define loop passage_T05_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 5
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Mitch won the sessions with the trainer in a raffle."
+	setcycle 9 line_text "Is this true?<br/>Mitch won the sessions with the trainer in a raffle."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -11893,7 +11896,7 @@ define loop passage_T06_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 6
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Juan’s meeting went as he expected."
+	setcycle 9 line_text "Is this true?<br/>Juan’s meeting went as he expected."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -11995,7 +11998,7 @@ define loop passage_T06_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 6
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Juan’s meeting went as he expected."
+	setcycle 9 line_text "Is this true?<br/>Juan’s meeting went as he expected."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -12097,7 +12100,7 @@ define loop passage_T06_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 6
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Juan’s meeting went as he expected."
+	setcycle 9 line_text "Is this true?<br/>Juan’s meeting went as he expected."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -12199,7 +12202,7 @@ define loop passage_T06_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 6
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Juan’s meeting went as he expected."
+	setcycle 9 line_text "Is this true?<br/>Juan’s meeting went as he expected."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response j
@@ -12292,7 +12295,7 @@ define loop passage_T07_FN
 	setcycle 7 Shift n
 	setcycle 8 passage 7
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The examination room was cold."
+	setcycle 8 line_text "Is this true?<br/>The examination room was cold."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -12385,7 +12388,7 @@ define loop passage_T07_FS
 	setcycle 7 Shift y
 	setcycle 8 passage 7
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The examination room was cold."
+	setcycle 8 line_text "Is this true?<br/>The examination room was cold."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -12478,7 +12481,7 @@ define loop passage_T07_NN
 	setcycle 7 Shift n
 	setcycle 8 passage 7
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The examination room was cold."
+	setcycle 8 line_text "Is this true?<br/>The examination room was cold."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -12571,7 +12574,7 @@ define loop passage_T07_NS
 	setcycle 7 Shift y
 	setcycle 8 passage 7
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The examination room was cold."
+	setcycle 8 line_text "Is this true?<br/>The examination room was cold."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -12673,7 +12676,7 @@ define loop passage_T08_FN
 	setcycle 8 Shift n
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Nigel had been practicing for two weeks."
+	setcycle 9 line_text "Is this true?<br/>Nigel had been practicing for two weeks."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -12775,7 +12778,7 @@ define loop passage_T08_FS
 	setcycle 8 Shift y
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Nigel had been practicing for two weeks."
+	setcycle 9 line_text "Is this true?<br/>Nigel had been practicing for two weeks."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -12877,7 +12880,7 @@ define loop passage_T08_NN
 	setcycle 8 Shift n
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Nigel had been practicing for two weeks."
+	setcycle 9 line_text "Is this true?<br/>Nigel had been practicing for two weeks."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -12979,7 +12982,7 @@ define loop passage_T08_NS
 	setcycle 8 Shift y
 	setcycle 9 passage 8
 	setcycle 9 line 0
-	setcycle 9 line_text "Is this true? (f:yes; j:no) <br/>Nigel had been practicing for two weeks."
+	setcycle 9 line_text "Is this true?<br/>Nigel had been practicing for two weeks."
 	setcycle 9 probe y
 	setcycle 9 probe_type q
 	setcycle 9 correct_response f
@@ -13048,7 +13051,7 @@ define loop passage_prac01
 	setcycle 7 correct_response j
 	setcycle 8 passage 1
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>The deadline was four hours away."
+	setcycle 8 line_text "Is this true?<br/>The deadline was four hours away."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -13114,7 +13117,7 @@ define loop passage_prac02
 	setcycle 7 correct_response j
 	setcycle 8 passage 2
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Wes was jogging along the waterfront."
+	setcycle 8 line_text "Is this true?<br/>Wes was jogging along the waterfront."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response f
@@ -13180,7 +13183,7 @@ define loop passage_prac03
 	setcycle 7 correct_response j
 	setcycle 8 passage 3
 	setcycle 8 line 0
-	setcycle 8 line_text "Is this true? (f:yes; j:no) <br/>Allan had two strikes and two spares."
+	setcycle 8 line_text "Is this true?<br/>Allan had two strikes and two spares."
 	setcycle 8 probe y
 	setcycle 8 probe_type q
 	setcycle 8 correct_response j
@@ -13193,6 +13196,7 @@ define sequence post_study
 	run Honest_response always
 	run Debrief always
 	run Debrief_response always
+	run logger always
 
 define inline_javascript prac_counter
 	set description "Executes JavaScript code (ECMA 5.1)"
