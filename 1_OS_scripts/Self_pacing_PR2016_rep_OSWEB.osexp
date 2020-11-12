@@ -1,11 +1,11 @@
 ---
 API: 2.1
-OpenSesame: 3.3.4
+OpenSesame: 3.3.5
 Platform: nt
 ---
 set width 1024
 set uniform_coordinates yes
-set title "Comprehension and word detection 20201030rev"
+set title "Comprehension and word detection 20201112rev"
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -41,12 +41,27 @@ define sketchpad Break
 	set description "Displays stimuli"
 	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Take a break.<br/><br/>Press SPACEBAR when you decide continue." x=-32 y=0 z_index=0
 
+define sketchpad Cookie
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Do you use any setting on your web browser that disables cookies from <br/>being stored on your computer? Press the respective KEY as your answer." x=-416 y=-128 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="<b>F</b>: Yes,I have set my explorer up to block all cookies (cookies disabeled). <br/><b>J</b>: No, my computer is set up to accept cookies, I do not know." x=-440 y=0 z_index=0
+
+define keyboard_response Cookie_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set correct_response f
+	set allowed_responses "f;j"
+
 define sketchpad Debrief
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="Most modern theories of text comprehension recognize the fact <br/>that readers' expectedness would affect their understanding. <br/>Readibility and individual knowledge, along with the context <br/>can greatly impact the readers' understanding. In order to <br/>facilitate our research on text comprehension we are interested<br/>in knowing certain factors about you, the turning point in the<br/>story. Specifically we are interested in whether you actually<br/>take the time to read the stories; if not, then some of our <br/>manipulations that rely on changes in the debrief will be <br/>ineffective. So, in order to demonstrate that you have read this<br/>debreif carefully, simply press space bar and ignore the question<br/>below. Instead, please check all four boxes and then press the<br/>corresponding button to proceed to the next screen. <br/>Thank you very much.<br/><br/>" x=-450 y=-200 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="Most modern theories of text comprehension recognize the fact <br/>that readers' expectedness would affect their understanding. <br/>Readibility and individual knowledge, along with the context <br/>can greatly impact the readers' understanding. In order to <br/>facilitate our research on text comprehension we are interested<br/>in knowing certain factors about you, the turning point in the<br/>story. Specifically we are interested in whether you actually<br/>take the time to read the stories; if not, then some of our <br/>manipulations that rely on changes in the debrief will be <br/>ineffective. So, in order to demonstrate that you have read this<br/>debrief carefully, simply press space bar and ignore the question<br/>below. Instead, please check all four boxes and then press the<br/>corresponding button to proceed to the next screen. <br/>Thank you very much.<br/><br/>" x=-450 y=-200 z_index=0
 	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Where are you completing this study?" x=0 y=224 z_index=0
-	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="f:At a university  g:At home  h:At work j:Other" x=-250 y=288 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="<b>F</b>:At a university  <b>G</b>:At home  <b>H</b>:At work <b>J</b>:Other" x=-250 y=288 z_index=0
 	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=28 html=yes show_if=always text=Debrief x=-64 y=-256 z_index=0
 
 define keyboard_response Debrief_response
@@ -61,8 +76,8 @@ define keyboard_response Debrief_response
 define sketchpad Honest
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In your honest opinion, should we use your data in our analyses in this study?" x=32 y=-128 z_index=0
-	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="f:YES   j:NO" x=0 y=0 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In your honest opinion, should we use your data in our analyses in this study?<br/>Press the respective KEY as your answer." x=-416 y=-128 z_index=0
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="<b>F</b>:YES   <b>J</b>:NO" x=0 y=0 z_index=0
 
 define keyboard_response Honest_response
 	set timeout infinite
@@ -72,6 +87,20 @@ define keyboard_response Honest_response
 	set description "Collects keyboard responses"
 	set correct_response f
 	set allowed_responses "f;j"
+
+define sketchpad Loading
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Did the words and sentences in this survey load at a constant speed throughout <br/>the entire survey? Press the respective KEY as your answer." x=-416 y=-128 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="<b>F</b>: Yes,the words/sentences loaded quickly and the whole survey ran smoothly. <br/> <b>G</b>: Yes, the words/sentences mostly loaded quickly but there were occasional <br/>delays in the survey. <br/><b>H</b>: No, there was a lot of variation in how quickly the words/sentences loaded. <br/> <b>J</b>: No, the survey started out smoothly but the words/sentences loaded more <br/>slowly towards the end." x=-440 y=0 z_index=0
+
+define keyboard_response Loading_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "f;g;h;j"
 
 define sketchpad Passage_board
 	set duration 0
@@ -116,6 +145,21 @@ define inline_javascript Prolific
 	console.log('prolific_session_id = ' + vars.prolific_session_id)
 	__end__
 	set _prepare ""
+
+define sketchpad Strange
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Did you notice anything strange in the way the sentences/pictures were loaded <br/>or displayed? Press the respective KEY as your answer." x=-416 y=-128 z_index=0
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="<b>F</b>:YES   <b>J</b>:NO" x=0 y=0 z_index=0
+
+define keyboard_response Strange_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set correct_response f
+	set allowed_responses "f;j"
 
 define sketchpad Study_end
 	set duration keypress
@@ -13197,6 +13241,7 @@ define sequence post_study
 	run post_study_seq always
 
 define loop post_study_seq
+	set source_file ""
 	set source table
 	set repeat 1
 	set order sequential
@@ -13211,6 +13256,12 @@ define loop post_study_seq
 define sequence post_study_trial
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
+	run Loading always
+	run Loading_response always
+	run Strange always
+	run Strange_response always
+	run Cookie always
+	run Cookie_response always
 	run Honest always
 	run Honest_response always
 	run Debrief always
