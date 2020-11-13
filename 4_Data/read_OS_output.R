@@ -46,4 +46,4 @@ df %>% filter(!is.na(count_count_board)) %>% ## filter warm-up trials
     as.data.frame()
 
 ## Retrieve post study survey data
-subset(df, count_post_study_trial == 0) %>% select(prolific_participant_id, response_Loading_response, response_Strange_response, response_Cookie_response, response_Honest_response, response_Debrief_response)
+subset(df, !is.na(count_post_study_trial)) %>% select(prolific_participant_id, Post_Topic, response)
