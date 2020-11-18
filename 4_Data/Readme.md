@@ -25,6 +25,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](./img/03.jpg)
 
-5. Run `read_OS_output.R` and check the output
+5. Run `read_OS_output.R` and retrieve the participant id(s) who complete the study.
 
 ![](./img/04.jpg)
+
+6. Paste the id to Prolific dashboard and export the participants meta data.
+
+![](./img/05.png)
+
+7. Run `Rawdata_filter.R` and export the valid rawdata for the analysis.
+
+![](./img/06.png)
