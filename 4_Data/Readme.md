@@ -9,6 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+### Data sets 
+
+- 2020 Nov First replication of Pettijohn and Radvansky (2016)
+> `jatos_results_20201113143306.txt`, `jatos_results_20201115223512.csv`
+
+### Pre-processing workflow
+
 1. Export data file (.json) from JATOS server.
 
 ![](./img/00.jpg)

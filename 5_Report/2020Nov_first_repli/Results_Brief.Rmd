@@ -1,0 +1,93 @@
+---
+title: 'Replication of Pettijohn and Radvansky (2016): 20201115 result'
+author: "Sau-Chin Chen, Faber Myrthe"
+date: "2020/12/04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(sylcount)
+## Load the cleaned data
+df <- read.csv("cleaned_data.csv")
+```
+
+## Participants
+
+We filtered the participants who did not complete all the stories and finish the post survey. Here is the sample size, averaged age, and percentage of female participants.
+```{r Background, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+## Export participants' background information and post study responses
+df %>% select(prolific_participant_id, age, Sex, First.Language) %>% distinct() %>%
+    summarise(N = n(), Age = mean(age), `Female %` = mean(Sex=="Female"), `English as First %` = mean(First.Language == "English") )
+```
+
+
+```{r postsurvey, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+## Check the post survey responses in addition to the debrief
+df %>% filter(!is.na(count_Question_board), Post_Topic != "Debrief") %>%
+    select(prolific_participant_id, Post_Topic, response) %>%
+    group_by(Post_Topic) %>%
+    count(response)
+##	Cookie F: Yes,I have set my web browser up to block all cookies (cookies disabeled). J: No, my computer is set up to accept cookies, I do not know.
+##	Honest F:YES   J:NO
+## Loading F: Yes,the words/sentences loaded quickly and the whole survey ran smoothly.  G: Yes, the words/sentences mostly loaded quickly but there were occasional delays in the survey. H: No, there was a lot of variation in how quickly the words/sentences loaded.  J: No, the survey started out smoothly but the words/sentences loaded more slowly towards the end.
+## Strange F:YES   J:NO
+```
+
+Among ```r (df %>% select(prolific_participant_id) %>% unique() %>% dim())[1]``` participants, ```r round(mean(df %>% filter(!is.na(Dimension), Post_Topic == "Debrief") %>% select(response) == "space")*100,2)``` % participants accurately answered the debrief.
+
+## Descriptive summary of critical responses
+
+```{r Comprehension, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+## read comprehension trials by participant
+Comprehension_datatable <- df %>% filter(!is.na(count_Question_board)) %>% ## filter warm-up trials
+    filter(probe_type == "q") %>%  ## isolate the comprehension trials
+    group_by(prolific_participant_id) %>%
+    summarise(test_acc = mean(correct))
+hist(Comprehension_datatable$test_acc)
+```
+
+Original researchers analyzed data from the participants who passed 75% comprehension questions. ```r dim(subset(Comprehension_datatable, test_acc > .75))[1]``` participants of this replication accurately answed more than 75% comprehension questions.
+
+```{r ReadTime, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+## Isolate the reading time data table
+ReadingTime_df <- df %>% filter(!is.na(Dimension)) %>%
+    filter(probe_type == "n", Dimension != "Filler")   ## isolate the lines
+
+## Count the syllables by sentence
+ReadingTime_df <- bind_cols(ReadingTime_df, Syls = lapply(ReadingTime_df %>% mutate(Syls = sylcount(line_text)) %>%
+    pull(Syls),  sum) %>%
+    unlist())
+
+## Reading time divided by syllables
+ReadingTime_df %>% mutate(reading_time = response_time/Syls ) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(subj_reading_time = mean(reading_time) ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(Average_reading_time = mean(subj_reading_time))
+```
+
+
+```{r verb, echo=TRUE, message=FALSE, warning=FALSE}
+## read verb probe response by participant
+(verb_rt <- df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter(probe_type == "v") %>%  ## isolate the verb probe responses
+    filter(correct == 1) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(Verb_rt = mean(response_time,na.rm =TRUE)) %>% as.data.frame() ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(RT = mean(Verb_rt))
+
+(verb_acc <- df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter(probe_type == "v") %>%  ## isolate the verb probe responses
+##    filter(correct == 1) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(Verb_acc = mean(correct)) %>% as.data.frame() ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(Accuracy = mean(Verb_acc))
+```
+
