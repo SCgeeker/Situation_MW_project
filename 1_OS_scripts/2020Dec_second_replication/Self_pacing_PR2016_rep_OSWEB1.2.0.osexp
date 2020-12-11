@@ -5,7 +5,7 @@ Platform: nt
 ---
 set width 1024
 set uniform_coordinates yes
-set title "Comprehension and word detection 20201204rev"
+set title "Comprehension and word detection 20201209rev"
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -38,7 +38,7 @@ set background white
 
 define feedback Break
 	set reset_variables yes
-	set duration 0
+	set duration 500
 	set description "Provides feedback to the participant"
 	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Take a break.<br/><br/> So far your accuracy is [acc] %. <br/><br/>Press SPACEBAR when you decide continue." x=-32 y=-24 z_index=0
 
@@ -52,9 +52,9 @@ define keyboard_response Debrief_response
 
 define feedback End
 	set reset_variables yes
-	set duration 0
+	set duration 1000
 	set description "Provides feedback to the participant"
-	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Take a break.<br/><br/> So far your accuracy is [acc] %. <br/><br/>Press SPACEBAR when you decide continue." x=-32 y=-24 z_index=0
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="This is the last story.<br/><br/> Your total accuracy is [acc] %. <br/><br/>Press SPACEBAR to finish the exit survey." x=-32 y=-24 z_index=0
 
 define sketchpad Passage_board
 	set duration 0
@@ -109,7 +109,7 @@ define inline_javascript Prolific
 	set _prepare ""
 
 define sketchpad Question_board
-	set duration 0
+	set duration 1000
 	set description "Displays stimuli"
 	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Question]" x=-416 y=-240 z_index=0
 	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Options]" x=0 y=200 z_index=0
@@ -123,8 +123,8 @@ define feedback comprehension_feedback
 	set reset_variables yes
 	set duration keypress
 	set description "Provides feedback to the participant"
-	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[correct]=1" text="Your answer is correct!" x=0 y=-64 z_index=0
-	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[correct]=0" text="Your answer is wrong!" x=0 y=-64 z_index=0
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[correct]=1" text="Your answer was correct!" x=0 y=-64 z_index=0
+	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[correct]=0" text="Your answer was wrong!" x=0 y=-64 z_index=0
 	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Press any key and go to the next story." x=0 y=0 z_index=0
 
 define keyboard_response contiue_space
@@ -150,6 +150,7 @@ define sequence exp_session
 	set description "Runs a number of items in sequence"
 	run trial_initiate always
 	run exp_trials always
+	run End always
 
 define loop exp_trials
 	set source table
@@ -181,7 +182,7 @@ define sequence experiment
 define sketchpad instruction_text
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="In this experiment, you will read a series of simple stories <br/>one sentence at a time. <br/><br/>Press the space bar to advance to the next sentence of the story. <br/>After some point in each story, a single word will appear in all  <br/>CAPITAL LETTERS.  <br/><br/>If this word was previously mentioned, press `f` with your left  <br/>index finger to select `Old Word`;  <br/>If it was not mentioned in the story, press 'j' with your right  <br/>index finger to select `New Word`.  <br/>Respond to the probes as quickly and accurately as you can.  <br/><br/>After each story, a statement will appear with the word Question  <br/>before it. Choose whether the statement is true by pressing 'f'  <br/>with your left index finger or false by pressing 'j' with your  <br/>right index finger. Once you inputed your answer, our program <br/>immediately reports your correctness. <br/><br/>The start of a new story will be signaled by the story number  <br/>in the top of the screen." x=-450 y=-330 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="In this experiment, you will read a series of simple stories <br/>one sentence at a time. <br/><br/>Press the space bar to advance to the next sentence of the story. <br/>After some point in each story, a single word will appear in all  <br/>CAPITAL LETTERS.  <br/><br/>If this word was previously mentioned, press `f` with your left  <br/>index finger to select `Old Word`;  <br/>If it was not mentioned in the story, press 'j' with your right  <br/>index finger to select `New Word`.  <br/>Respond to the probes as quickly and accurately as you can.  <br/><br/>After each story, a statement will appear with the word Question  <br/>before it. Choose whether the statement is true by pressing 'f'  <br/>with your left index finger or false by pressing 'j' with your  <br/>right index finger. Once you submit your answer, the program will <br/>immediately tell you whether you were right or wrong. <br/><br/>The start of a new story will be signaled by the story number  <br/>in the top of the screen." x=-450 y=-330 z_index=0
 	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="Please press SPACE BAR to continue." x=-224 y=288 z_index=0
 
 define logger logger
@@ -13315,7 +13316,7 @@ define sketchpad practice_text
 define sketchpad start_text
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Now we will start the experiment.<br /><br />You will read 40 stories and have a break <br/>when you answered 20 questions.<br/>Keep your attention on realizing the story theme." x=-427 y=-269 z_index=0
+	draw textline center=0 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Now we will start the experiment.<br /><br />You will read 40 stories and have a break when you answered 20 questions.<br/><br/>Keep your attention on the story theme." x=-427 y=-269 z_index=0
 
 define sequence task_trial
 	set flush_keyboard yes
@@ -13784,5 +13785,4 @@ define sequence trial_seq
 	run passage_F06 "[f06]=1"
 	run passage_F07 "[f07]=1"
 	run passage_F08 "[f08]=1"
-	run End "[trial_seq]=40"
 

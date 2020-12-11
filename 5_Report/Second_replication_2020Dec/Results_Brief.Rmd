@@ -1,0 +1,178 @@
+---
+title: 'Replication of Pettijohn and Radvansky (2016): Second replication'
+author: "Sau-Chin Chen, Faber Myrthe"
+date: "`r format(Sys.time(), '%Y/%m/%d')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(sylcount)
+library(knitr)
+library(kableExtra)
+## Load the cleaned data
+df <- read.csv("../../4_Data/Second_replication_2020Dec/cleaned_raw_data.csv")
+```
+
+
+## Method note
+
+data collection starting time: 2020/12/09 13:00  
+
+Participants were native English speakers who are living in the English countries. The changes from the original study: we presented the stories and questions on OSWEB instead of Qualtrics. Participants had the feedback after each comprehension question and checked the latest accuacy at the break and end board.
+
+## Participants
+
+We filtered the participants who did not complete all the stories and finish the post survey. Here is the sample size, averaged age, and percentage of female participants.
+```{r Background, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+## Export participants' background information and post study responses
+df %>% select(prolific_participant_id, age, Sex, First.Language) %>% distinct() %>%
+    summarise(N = n(), Age = mean(age), `Female %` = mean(Sex=="Female"), `English as First %` = mean(First.Language == "English") )
+```
+
+
+```{r postsurvey, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+## Check the post survey responses in addition to the debrief
+df %>% filter(!is.na(Dimension)) %>%
+    filter(Post_Topic %in% c("Cookie", "Honest", "Loading", "Strange") ) %>%
+    select(prolific_participant_id, Post_Topic, response) %>%
+    group_by(Post_Topic) %>%
+    count(response)
+##	Cookie F: Yes,I have set my web browser up to block all cookies (cookies disabeled). J: No, my computer is set up to accept cookies, I do not know.
+##	Honest F:YES   J:NO
+## Loading F: Yes,the words/sentences loaded quickly and the whole survey ran smoothly.  G: Yes, the words/sentences mostly loaded quickly but there were occasional delays in the survey. H: No, there was a lot of variation in how quickly the words/sentences loaded.  J: No, the survey started out smoothly but the words/sentences loaded more slowly towards the end.
+## Strange F:YES   J:NO
+```
+
+Among ```r (df %>% select(prolific_participant_id) %>% unique() %>% dim())[1]``` participants, ```r round(mean(df %>% filter(!is.na(Dimension), Post_Topic == "Debrief") %>% select(response) == "space")*100,2)``` % participants accurately answered the debrief.
+
+## Descriptive summary of critical responses
+
+```{r Comprehension, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+## read comprehension trials by participant
+Comprehension_datatable <- df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter(probe_type == "q") %>%  ## isolate the comprehension trials
+    group_by(prolific_participant_id) %>%
+    summarise(test_acc = mean(correct))
+hist(Comprehension_datatable$test_acc)
+```
+
+Original researchers analyzed data from the participants who passed 75% comprehension questions. ```r dim(subset(Comprehension_datatable, test_acc > .75))[1]``` participants of this replication correctly answered more than 75% comprehension questions.
+
+Filtered the participants who had the accuracy below .60, there was no difference on the reading times across conditions. The shortest verb probe response time occurred at the stories without foreshadow and with shifted event.
+
+```{r Summary_60, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results='asis'}
+## Filter the participants' accuracy below .60
+target_id <- subset(Comprehension_datatable, test_acc > .60) %>% pull(prolific_participant_id)
+
+## Count the syllables by lines
+Story_df <- df %>% filter(!is.na(Dimension)) %>%
+    filter( prolific_participant_id %in% target_id  ) %>%
+    filter(probe_type == "n", Dimension != "Filler")
+
+## Count the syllables by sentence
+Syls = lapply(Story_df %>% mutate(Syls = sylcount(line_text)) %>% ## isolate the lines
+    pull(Syls),  sum) %>%
+    unlist()
+
+## Summarize the reading time
+ReadingTime_table <- bind_cols(Story_df, Syls)
+
+## Reading time divided by syllables
+ReadingTime_df<- ReadingTime_table %>% mutate(reading_time = response_time/Syls ) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(subj_reading_time = mean(reading_time) ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(Average_reading_time = round(mean(subj_reading_time)) )
+
+## Summary of verb responses
+Verb_df <- left_join(
+(df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter( prolific_participant_id %in% target_id  ) %>%
+    filter(probe_type == "v") %>%  ## isolate the verb probe responses
+    filter(correct == 1) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(Verb_rt = mean(response_time,na.rm =TRUE)) %>% as.data.frame() ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(RT = round(mean(Verb_rt)) ),
+
+(df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter( prolific_participant_id %in% target_id  ) %>%
+    filter(probe_type == "v") %>%  ## isolate the verb probe responses
+##    filter(correct == 1) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(Verb_acc = mean(correct)) %>% as.data.frame() ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(Accuracy = round(mean(Verb_acc),2) ),
+by=c("Foreshadow","Shift")
+)
+
+##Merge the data summary
+Repli_60_df <- left_join(ReadingTime_df, Verb_df, by=c("Foreshadow","Shift"))
+```
+
+```{r echo=FALSE, paged.print=TRUE}
+kable(Repli_60_df[-1,], booktabs=TRUE) %>%
+    kable_styling()
+```
+
+
+Filtered the participants who had the accuracy below .75, The shortest reading time and verb probe response time occurred at the stories without foreshadow and with shifted event.
+
+```{r Summary_70, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, results='asis'}
+## Filter the participants' accuracy below .60
+target_id <- subset(Comprehension_datatable, test_acc > .75) %>% pull(prolific_participant_id)
+
+## Count the syllables by lines
+Story_df <- df %>% filter(!is.na(Dimension)) %>%
+    filter( prolific_participant_id %in% target_id  ) %>%
+    filter(probe_type == "n", Dimension != "Filler")
+
+## Count the syllables by sentence
+Syls = lapply(Story_df %>% mutate(Syls = sylcount(line_text)) %>% ## isolate the lines
+    pull(Syls),  sum) %>%
+    unlist()
+
+## Summarize the reading time
+ReadingTime_table <- bind_cols(Story_df, Syls)
+
+## Reading time divided by syllables
+ReadingTime_df<- ReadingTime_table %>% mutate(reading_time = response_time/Syls ) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(subj_reading_time = mean(reading_time) ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(Average_reading_time = round(mean(subj_reading_time)) )
+
+## Summary of verb responses
+Verb_df <- left_join(
+(df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter( prolific_participant_id %in% target_id  ) %>%
+    filter(probe_type == "v") %>%  ## isolate the verb probe responses
+    filter(correct == 1) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(Verb_rt = mean(response_time,na.rm =TRUE)) %>% as.data.frame() ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(RT = round(mean(Verb_rt)) ) ,
+
+(df %>% filter(!is.na(Dimension)) %>% ## filter warm-up trials
+    filter( prolific_participant_id %in% target_id  ) %>%
+    filter(probe_type == "v") %>%  ## isolate the verb probe responses
+##    filter(correct == 1) %>%
+    group_by(prolific_participant_id, Dimension, Foreshadow, Shift) %>%
+    summarise(Verb_acc = mean(correct)) %>% as.data.frame() ) %>%
+    group_by(Foreshadow, Shift) %>%
+    summarise(Accuracy = round(mean(Verb_acc),2) ),
+by=c("Foreshadow","Shift")
+)
+
+##Merge the data summary
+Repli_75_df <- left_join(ReadingTime_df, Verb_df, by=c("Foreshadow","Shift"))
+```
+
+```{r echo=FALSE, paged.print=TRUE, results='asis'}
+kableExtra::kable(Repli_75_df[-1,], booktabs=TRUE) %>%
+    kable_styling()
+```
